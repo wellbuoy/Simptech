@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplified Tech</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS (via CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Config for Brand Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        tech: {
+                            dark: '#0f172a',
+                            light: '#1e293b',
+                            accent: '#3b82f6', // Blue
+                            glow: '#06b6d4',   // Cyan
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities */
+        body {
+            background-color: #0f172a;
+            /* Slate 900 */
+            color: #f8fafc;
+        }
+
+        .tech-gradient {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(6, 182, 212, 0.3);
+            border-color: #06b6d4;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold tracking-tighter">
+                        <i class=""></i>Simplified<span class="text-cyan-400">Tech</span>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about"
+                            class="hover:text-cyan-400 transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#services"
+                            class="hover:text-cyan-400 transition-colors px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                        <a href="#why-us"
+                            class="hover:text-cyan-400 transition-colors px-3 py-2 rounded-md text-sm font-medium">Why
+                            Us</a>
+                        <a href="#contact"
+                            class="bg-cyan-500 hover:bg-cyan-600 text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-lg shadow-cyan-500/30">Contact
+                            Us</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="toggleMenu()"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-slate-800 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div class="md:hidden hidden bg-slate-900 border-b border-slate-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium hover:text-cyan-400">About</a>
+                <a href="#services"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:text-cyan-400">Services</a>
+                <a href="#why-us" class="block px-3 py-2 rounded-md text-base font-medium hover:text-cyan-400">Why
+                    Us</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-cyan-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-1/2 w-full -translate-x-1/2 h-full z-0 pointer-events-none">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+                Tech Support <br>
+                <span class="text-gradient">Made Simple.</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400 mb-10">
+                Professional computer repair and IT solutions. We fix the complex so you can get back to what matters.
+                Fast, reliable, and affordable.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contact"
+                    class="px-8 py-4 bg-cyan-500 hover:bg-cyan-600 text-white font-bold rounded-lg transition-all shadow-lg shadow-cyan-500/25 transform hover:-translate-y-1">
+                    Book a Repair
+                </a>
+                <a href="#services"
+                    class="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-lg border border-slate-700 transition-all">
+                    View Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="mb-10 lg:mb-0">
+                    <h2 class="text-3xl font-bold mb-6">Who We Are</h2>
+                    <p class="text-slate-400 text-lg mb-6 leading-relaxed">
+                        At <span class="text-cyan-400 font-semibold">Simplified Tech</span>, we believe technology
+                        should empower you, not frustrate you. Founded on the principles of transparency and technical
+                        excellence, we bridge the gap between complex hardware issues and easy-to-understand solutions.
+                    </p>
+                    <p class="text-slate-400 text-lg mb-8 leading-relaxed">
+                        Our mission is to provide top-tier IT support that is accessible to everyone. Whether you are a
+                        student with a broken laptop or a business needing network maintenance, we treat every device as
+                        if it were our own.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="flex -space-x-2">
+                            <!-- Placeholder avatars -->
+                            <div
+                                class="w-10 h-10 rounded-full bg-slate-700 border-2 border-slate-900 flex items-center justify-center text-xs">
+                                T1</div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-slate-600 border-2 border-slate-900 flex items-center justify-center text-xs">
+                                T2</div>
+                            <div
+                                class="w-10 h-10 rounded-full bg-slate-500 border-2 border-slate-900 flex items-center justify-center text-xs">
+                                T3</div>
+                        </div>
+                        <span class="text-sm text-slate-400">Trusted by local businesses & residents</span>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl transform rotate-3 opacity-20 blur-lg">
+                    </div>
+                    <div class="relative bg-slate-800 rounded-2xl p-8 border border-slate-700 shadow-2xl">
+                        <div class="grid grid-cols-2 gap-6 text-center">
+                            <div class="p-4 bg-slate-900 rounded-lg">
+                                <i class="fa-solid fa-screwdriver-wrench text-3xl text-cyan-400 mb-3"></i>
+                                <h3 class="font-bold text-xl">500+</h3>
+                                <p class="text-sm text-slate-400">Repairs Done</p>
+                            </div>
+                            <div class="p-4 bg-slate-900 rounded-lg">
+                                <i class="fa-solid fa-face-smile text-3xl text-cyan-400 mb-3"></i>
+                                <h3 class="font-bold text-xl">99%</h3>
+                                <p class="text-sm text-slate-400">Satisfaction</p>
+                            </div>
+                            <div class="p-4 bg-slate-900 rounded-lg">
+                                <i class="fa-solid fa-clock text-3xl text-cyan-400 mb-3"></i>
+                                <h3 class="font-bold text-xl">24h</h3>
+                                <p class="text-sm text-slate-400">Avg Turnaround</p>
+                            </div>
+                            <div class="p-4 bg-slate-900 rounded-lg">
+                                <i class="fa-solid fa-certificate text-3xl text-cyan-400 mb-3"></i>
+                                <h3 class="font-bold text-xl">Certified</h3>
+                                <p class="text-sm text-slate-400">Technicians</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">Comprehensive solutions for all your hardware and software
+                    needs.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-800 card-hover group">
+                    <div
+                        class="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
+                        <i class="fa-brands fa-windows text-2xl text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">OS Installation</h3>
+                    <p class="text-slate-400 text-sm">Clean installation of Windows 10/11 or Linux distributions.
+                        Includes driver updates and optimization.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-800 card-hover group">
+                    <div
+                        class="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
+                        <i class="fa-solid fa-file-word text-2xl text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Office Setup</h3>
+                    <p class="text-slate-400 text-sm">Installation and configuration of Microsoft Office Suite (Word,
+                        Excel, PowerPoint) and email clients.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-800 card-hover group">
+                    <div
+                        class="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
+                        <i class="fa-solid fa-arrow-up-right-dots text-2xl text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Windows Upgrade</h3>
+                    <p class="text-slate-400 text-sm">Seamless migration from older Windows versions to the latest OS
+                        without data loss.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-800 card-hover group">
+                    <div
+                        class="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
+                        <i class="fa-solid fa-shield-virus text-2xl text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Virus Removal</h3>
+                    <p class="text-slate-400 text-sm">Complete system scan and removal of malware, spyware, and viruses.
+                        Includes security hardening.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-800 card-hover group">
+                    <div
+                        class="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
+                        <i class="fa-solid fa-microchip text-2xl text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Hardware Repair</h3>
+                    <p class="text-slate-400 text-sm">Diagnostics and repair for RAM, hard drives, power supplies, and
+                        motherboard issues.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-slate-900 p-8 rounded-xl border border-slate-800 card-hover group">
+                    <div
+                        class="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
+                        <i class="fa-solid fa-mobile-screen text-2xl text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Screen Replacement</h3>
+                    <p class="text-slate-400 text-sm">Professional replacement of cracked or broken laptop and monitor
+                        screens using OEM parts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="py-20 bg-gradient-to-b from-slate-900 to-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose Simplified Tech?</h2>
+                <div class="h-1 w-20 bg-cyan-500 mx-auto rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6">
+                    <div
+                        class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 border border-slate-700">
+                        <i class="fa-solid fa-bolt text-2xl text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Fast Turnaround</h3>
+                    <p class="text-slate-400 text-sm">We understand downtime costs money. Most repairs are completed
+                        within 24-48 hours.</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div
+                        class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 border border-slate-700">
+                        <i class="fa-solid fa-user-tie text-2xl text-cyan-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Expert Techs</h3>
+                    <p class="text-slate-400 text-sm">Certified professionals with years of experience in hardware and
+                        software diagnostics.</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div
+                        class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 border border-slate-700">
+                        <i class="fa-solid fa-tags text-2xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Affordable Pricing</h3>
+                    <p class="text-slate-400 text-sm">Transparent quotes with no hidden fees. High-quality service that
+                        fits your budget.</p>
+                </div>
+
+                <div class="text-center p-6">
+                    <div
+                        class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-4 border border-slate-700">
+                        <i class="fa-solid fa-heart text-2xl text-red-400"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-2">Customer First</h3>
+                    <p class="text-slate-400 text-sm">We prioritize your satisfaction. If we can't fix it, you don't
+                        pay.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <!-- Contact Info -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">Get In Touch</h2>
+                    <p class="text-slate-400 mb-8">Ready to fix your tech? Visit our shop or send us a message.</p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fa-solid fa-location-dot text-cyan-400 text-xl mt-1"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold">Visit Us</h4>
+                                <p class="text-slate-400">Simptech<br>johannesburg, 2091</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fa-solid fa-phone text-cyan-400 text-xl mt-1"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold">Call Us</h4>
+                                <p class="text-slate-400">067 106 4499</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fa-solid fa-envelope text-cyan-400 text-xl mt-1"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold">Email Us</h4>
+                                <p class="text-slate-400">Simplified.tech@outlook.com</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <i class="fa-solid fa-clock text-cyan-400 text-xl mt-1"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-semibold">Business Hours</h4>
+                                <p class="text-slate-400">Mon - Fri: 8:00 AM - 16:00 PM<br>Sat: 9:00 AM - 14:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl">
+                    <form onsubmit="event.preventDefault(); alert('Thank you! We will contact you shortly.');">
+                        <div class="grid grid-cols-1 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-slate-300 mb-2">Full
+                                    Name</label>
+                                <input type="text" id="name"
+                                    class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+                                    placeholder="John Doe" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-300 mb-2">Email
+                                    Address</label>
+                                <input type="email" id="email"
+                                    class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+                                    placeholder="john@example.com" required>
+                            </div>
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-slate-300 mb-2">Service
+                                    Needed</label>
+                                <select id="service"
+                                    class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors">
+                                    <option>General Repair</option>
+                                    <option>Virus Removal</option>
+                                    <option>Hardware Upgrade</option>
+                                    <option>Software Installation</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="message"
+                                    class="block text-sm font-medium text-slate-300 mb-2">Message</label>
+                                <textarea id="message" rows="4"
+                                    class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-colors"
+                                    placeholder="Describe your issue..." required></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-3 px-4 rounded-lg transition-all shadow-lg shadow-cyan-500/25">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="text-xl font-bold tracking-tighter">
+                        <i class=""></i>Simplified<span class="text-cyan-400">Tech</span>
+                    </span>
+                    <p class="text-slate-500 text-sm mt-2">© 2026 Simplified Tech. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition-colors"><i
+                            class="fa-brands fa-facebook text-xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition-colors"><i
+                            class="fa-brands fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition-colors"><i
+                            class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-cyan-400 transition-colors"><i
+                            class="fa-brands fa-linkedin text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+
+</html>
