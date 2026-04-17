@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
-import { 
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -41,13 +41,12 @@ const contactInfo = [
 
 const services = [
   'General Repair',
-  'Web Development',
-  'IT Support',
-  'Networking',
-  'Camera Installation',
   'Virus Removal',
   'Hardware Upgrade',
   'Software Installation',
+  'IT Support',
+  'Networking',
+  'Camera Installation',
   'Other',
 ]
 
@@ -64,7 +63,7 @@ export function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+
     try {
       const response = await fetch('https://formspree.io/f/mpqovjlb', {
         method: 'POST',
@@ -98,10 +97,10 @@ export function Contact() {
       {/* Background */}
       <div className="absolute inset-0 bg-slate-950" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      
+
       {/* Decorative Elements */}
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl" />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <AnimatedSection className="text-center mb-16">
@@ -130,7 +129,7 @@ export function Contact() {
                       <div>
                         <h4 className="text-lg font-semibold text-white mb-1">{item.title}</h4>
                         {item.href ? (
-                          <a 
+                          <a
                             href={item.href}
                             className="text-slate-400 hover:text-cyan-400 transition-colors whitespace-pre-line"
                           >
@@ -173,7 +172,7 @@ export function Contact() {
             <div className="relative">
               {/* Glow Effect */}
               <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-3xl blur-2xl opacity-50" />
-              
+
               <div className="relative bg-slate-900/80 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-2xl">
                 {isSubmitted ? (
                   <motion.div
@@ -227,8 +226,8 @@ export function Contact() {
                         </SelectTrigger>
                         <SelectContent className="bg-slate-900 border-white/10">
                           {services.map((service) => (
-                            <SelectItem 
-                              key={service} 
+                            <SelectItem
+                              key={service}
                               value={service}
                               className="text-white hover:bg-cyan-500/10 focus:bg-cyan-500/10"
                             >
